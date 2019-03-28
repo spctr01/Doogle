@@ -5,6 +5,7 @@ import numpy
 from PIL import Image
 import torchvision.transforms as transforms
 from train import loaded_model
+import pretrainedmodels
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
@@ -25,9 +26,11 @@ def load_image(path):
     return image
 
 
-#loading pretrained vgg19 model
-resnet = models.vgg19(pretrained = True)
-resnet.to(device)
+#loading pretrained Xception model
+model_name = 'xception'
+model = pretrainedmodels.__dict__[model_name](num_classes = 1000, pretrained = 'imagenet')
+model = model.to(device)
+
 
 #returns  true  false respective to dog detected or not
 def predict(path):
@@ -37,20 +40,15 @@ def predict(path):
   '''
   img = load_image(path)
   img = img.to(device)
-  ret = resnet(img)
+  ret = model(img)
   class_no = torch.max(ret,1)[1].item()
   returns (class_no >=151 and class_no <= 277)  
 
 
 # pass the image to trained model and predict the breed.
 def breed(path):
-  img = predict(path)
-  if img == True:
-    breed = model(path)
-  else:
-    breed = "no dog found"
-    
-  return breed
+  in_image = predict(path)
+  
 
 def wiki(info):
   return wikipedia.summary(info)

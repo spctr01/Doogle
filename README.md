@@ -3,7 +3,7 @@
  ![alt text]()
  
  ## Requirements
- PyTorch
- Flask
+ - PyTorch
+ - Flask
  
  

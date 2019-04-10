@@ -9,7 +9,7 @@
  dataset of 133 dog breeds is used to train the model (as per the model  the total images in dataset are not sufficient any other
  dog breed dataset can be used)
 >> [Dog breed Dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip)
-> models folder contains  resent and vgg model weight files instead of read.txt
+- models folder contains  resent and vgg model weight files instead of read.txt
  
  ## Requirements
  - PyTorch1.0 

@@ -15,6 +15,8 @@
  - PyTorch1.0 
  - Flask-1.0.2 
  - Wikipedia api 
+ - Numpy 
+ - Pillow
  
  
  

@@ -1,0 +1,253 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: 'Maxwell';
+    src: url('./fonts/MAXWELL\ BOLD.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('./fonts/Product\ Sans\ Regular.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'Product Sans Bold';
+    src: url('./fonts/Product\ Sans\ Bold.ttf')  format('truetype');
+}
+
+#particles-js {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('./doggos.jpg');
+    background-size: cover;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg) drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.4));  ;
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg) drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.4));  ;
+  }
+}
+
+@-webkit-keyframes hue2 {
+  from {
+    -webkit-filter: hue-rotate(-360deg) drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.4));  ;
+  }
+  to {
+    -webkit-filter: hue-rotate(0deg) drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.4));  ;
+  }
+}
+  
+
+#mainHeading, #secHeading, #terHeading  {
+    font-family: 'Product Sans Bold';
+    font-size: 120px;
+    background-image: -webkit-linear-gradient(120deg, #f35626, #feab3a);
+  	-webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 15s infinite linear; 
+    margin-top: -60px;  
+}
+
+#terHeading {
+  -webkit-animation: hue2 15s infinite linear; 
+}
+
+#secHeading {
+    font-size: 35px;
+    padding: 10px;    
+}
+
+#terHeading {
+  font-family: 'Product Sans';
+  font-size: 18px;
+  margin: -20px -270px 0px 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-container {
+  margin-top: 60px;
+  max-width: 300px;
+  background-color: #EDEDED;
+  border: 2px solid #161616;
+  border-radius: 50px;
+  padding-left: 20px;
+}
+
+input[type='file'] {
+  display: none;
+}
+  
+.file-info {
+  font-family: 'Product Sans';
+  font-size: 20px;
+}
+
+.browse-btn {
+  color: #fff;
+  background-color: #161616;
+  padding: 8px 10px 8px 10px;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Product Sans';
+  font-size: 16px;
+  transform: scale(1.2) translateX(10px);
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid #fff; 
+}
+  
+.browse-btn:hover {
+  color: #161616;
+  background: #fff;
+}
+
+#submitBtn {
+  border-style: none;
+  border: 1px solid;
+  border-radius: 20px;
+  margin-top: 26px;
+  padding: 10px 12px 10px 12px;
+  font-family: 'Product Sans';
+  font-size: 16px;
+  background-color: transparent;
+  color: #fff;
+  transition: ease all 0.2s;
+  cursor: pointer;
+  outline: none;
+  z-index: 2;
+}
+
+#submitBtn:hover {
+  color: #161616;
+  background-color: #fff;
+}
+
+/* Results Page */
+#resultContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(./doggos.jpg);
+  background-size: cover;
+}
+
+#resultWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#processingIndicator {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  font-family: 'Product Sans Bold';
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  color: rgba(240, 248, 255, 0.397);
+  box-sizing: border-box;
+  padding: 6px;
+}
+
+#dogCard {
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.4);
+}
+
+#dogImage {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  border-radius: 14px;
+  border: 2px solid #161616;  
+}
+
+/* #dogImageWrapper {
+  height: 240px;
+  width: fit-content;
+}
+
+#dogImageWrapper img {
+  width: auto;
+  height: 100%;
+  border-radius: 14px;
+  border: 2px solid #161616; 
+} */
+
+#dogParticles {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  position: absolute;
+  z-index: 2;
+}
+
+#dogBreed {
+  margin: 14px 0px 0px 0px;
+  font-family: Maxwell;
+  color: #161616;
+  font-size: 20px;
+  text-align: center;
+}
+
+#dogInfoHeading {
+  font-family: 'Product Sans Bold';
+  font-size: 20px;
+  margin-bottom: 10px;
+  background-image: -webkit-linear-gradient(120deg, #f35626, #feab3a);
+  	-webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 15s infinite linear;
+  width: 100%;
+  text-align: center;
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.4));
+}
+
+#dogInfo {
+  color: #fff;
+  font-family: 'Product Sans';
+  font-size: 17px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 40px 0px 0px 0px;
+  width: 90%;
+  border-radius: 20px;  
+}

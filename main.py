@@ -7,7 +7,7 @@ import torchvision.models as models
 import torchvision.transforms as transforms
 import numpy
 from PIL import Image
-import torchvision.transforms as transforms
+import wikipedia
 
 
 
@@ -33,15 +33,16 @@ def load_image(path):
 
 #loading pretrained  vgg19 model
 model = models.vgg19(pretrained = False)
-model.load_state_dict(torch.load('Models/vgg.pth'))
+model.load_state_dict(torch.load('Models/vgg.pth', map_location = device))
 model.to(device)
 model.eval()
 
 #loading resnet101 trained on dataset
-resnet= models.resnet101(pretrained = False)
+#finetune model 
+resnet= models.resnet152(pretrained = False)
 ftrs = resnet.fc.in_features     # gives input dimentions of fullyconnected layer
 resnet.fc = nn.Linear(ftrs,133)
-resnet.load_state_dict(torch.load('Models/model.pt', map_location = 'cpu'))
+resnet.load_state_dict(torch.load('Models/model.pt', map_location = device))
 resnet.to(device)
 
 
@@ -62,33 +63,35 @@ def res(path):
   return torch.max(output,1)[1].item()
 	
 
-#reading class_name file
+#reading class_name if not a dog from vgg classes
 def class_name_vgg(idx):
   file = open('classes/vgg.txt', 'r')
   lines = file.read().split('\n')
   lines = [x for x in lines]
   return lines[idx]
 
+#returns breed name from text file
+def breed_name(idx):
+  file = open('classes/breed.txt', 'r')
+  lines = file.read().split('\n')
+  lines = [x for x in lines]
+  return lines[idx]
 
-#returns information from wikipedia
-def wiki(info):
-  return wikipedia.summary(info)
 
 
 # pass the image to trained model and predict the breed.
 def breed(path):
   in_img = load_image(path)
   a = vgg(in_img)
+
   if a >= 151 and a <=280:
-    name = res(in_img)
-    wiki(name)
+    class_no = res(in_img)
+    name = breed_name(class_no)
   else:
-    
-    name = 'No dog found in image, but{} found'.format(class_name_vgg(a))
+    class_no = class_name_vgg(a)
+    name = class_no  #returns class  from vgg to show what is in image
   return name
-  
 
-  
-
-
-
+#returns information from wikipedia
+def wiki(info):
+  return wikipedia.summary(info)

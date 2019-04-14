@@ -12,9 +12,10 @@ def hello():
         file = request.files['file']
         image = file.read()
         pas = breed(path = image)
-        gpu = device
+        inf = wiki(pas)
+        chip = device
         
-        return render_template('result.html',breed_name=pas, processor = gpu)
+        return render_template('result.html',breed_name=pas,  info= inf, device= chip)
         
 
 

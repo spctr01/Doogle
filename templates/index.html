@@ -1,11 +1,29 @@
 <!doctype html>
 <html>
     <head>
-        </head>
-        <body>
-                <form method="post" enctype="multipart/form-data">
-                    <input type = "file" name = "file" />
-                    <input type = "submit"/>
-                 </form>
-              </body>
-           </html>
+      <title>doogle.</title>
+      <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+      <script src="static/js/particles.min.js"></script>
+    </head>
+    <body>
+      <div id="container">
+          <div id="particles-js"></div>
+        <div id="wrapper">
+          <h1 id="secHeading">U・ᴥ・U</h1>
+          <h1 id="mainHeading">doogle.</h1>          
+          <h1 id="terHeading">AI POWERED</h1>          
+          <form method="post" enctype="multipart/form-data">
+            <div class="input-container">
+                <input type="file" name="file" id="real-input">
+                <span class="file-info">upload any dog image</span>  
+                <button class="browse-btn">
+                    browse
+                </button>
+              </div>
+            <input id="submitBtn" type="submit" value="what's the breed ?">
+          </form>
+        </div>        
+      </div>
+      <script src="static/js/script.js"></script> 
+    </body>
+  </html>

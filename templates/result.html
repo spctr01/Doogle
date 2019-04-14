@@ -1,13 +1,26 @@
 <!doctype html>
 <html>
-    <head>
-    </head>
-    <body>
-      
-      <p>CPU/GPU{{processor}}</p>
-      <p> DOG BREED: {{breed_name}}      </p>
-	<p>Information :{{wiki_info}}     </p>
-	<p></p>
-
-    </body>
-  </html>
+  <head>
+    <title>doogle.</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    <script src="{{ url_for('static',filename='js/particles.min.js') }}"></script>
+  </head>
+  <body>
+    <div id="resultContainer">
+      <div id="resultWrapper">
+        <div id="dogCard">
+          <div id="dogImage" style="background-image: url(static/css/doggo.jpg);">
+            <div id="dogParticles"></div>
+          </div>
+          <p id="dogBreed">{{breed_name}}</p>
+        </div>
+        <div id="dogInfo">
+            <p id="dogInfoHeading">More about {{breed_name}}</p>
+             {{info}}
+        </div>        
+        <p id="processingIndicator">CPU | it might take some time to process image.</p>
+      </div>
+    </div>
+    <script src="{{ url_for('static',filename='js/result.js') }}"></script>
+  </body>
+</html>

@@ -26,7 +26,7 @@ def load_image(path):
                         transforms.ToTensor(),
                         transforms.Normalize((0.485, 0.456, 0.406),(0.229, 0.224, 0.225))]) 
 
-    image = Image.open(io.BytesIO(path))
+    image = Image.open(path)
     image = transform(image)[:3,:,:].unsqueeze(0)
     return image
 
@@ -86,12 +86,15 @@ def breed(path):
 
   if a >= 151 and a <=280:
     class_no = res(in_img)
-    name = breed_name(class_no)
+    found_breed = breed_name(class_no)
+    flag = 0
+    return found_breed, flag
   else:
-    class_no = class_name_vgg(a)
-    name = class_no  #returns class  from vgg to show what is in image
-  return name
+    found_obj = class_name_vgg(a) #returns class  from vgg to show what is in image
+    flag = 1
+    return found_obj, flag
 
 #returns information from wikipedia
 def wiki(info):
   return wikipedia.summary(info)
+

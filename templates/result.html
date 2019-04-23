@@ -9,16 +9,16 @@
     <div id="resultContainer">
       <div id="resultWrapper">
         <div id="dogCard">
-          <div id="dogImage" style="background-image: url(static/css/doggo.jpg);">
+          <div id="dogImage" style="background-image: url(static/images/{{image_name}});">
             <div id="dogParticles"></div>
           </div>
           <p id="dogBreed">{{breed_name}}</p>
         </div>
         <div id="dogInfo">
-            <p id="dogInfoHeading">More about {{breed_name}}</p>
+            <p id="dogInfoHeading">{{head}} </p>
              {{info}}
         </div>        
-        <p id="processingIndicator">CPU | it might take some time to process image.</p>
+        <p id="processingIndicator">{{device}}</p>
       </div>
     </div>
     <script src="{{ url_for('static',filename='js/result.js') }}"></script>

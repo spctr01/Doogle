@@ -1,7 +1,24 @@
+import os 
+import shutil
 from flask import Flask, render_template, request
-app = Flask(__name__)
+
 
 from main import *
+
+UPLOAD_FOLDER = "static/images"
+
+for the_file in os.listdir(UPLOAD_FOLDER):
+    file_path = os.path.join(UPLOAD_FOLDER, the_file)
+    try:
+        if os.path.isfile(file_path):
+            os.unlink(file_path)
+        
+    except Exception as e:
+        print(e)
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 @app.route('/', methods=['GET', 'POST'])
 def hello():
@@ -9,13 +26,28 @@ def hello():
         return render_template('index.html')
 
     if request.method == 'POST':
+
         file = request.files['file']
-        image = file.read()
-        pas = breed(path = image)
-        inf = wiki(pas)
-        chip = device
+        f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        file.save(f)
+        name = file.filename
+        image = UPLOAD_FOLDER + '/' + name
+
+        found, flag = breed(path = image)
+        if flag == 0:
+            info = wiki(found)
+            top = 'More about ' + found
+        else:
+            info = ''
+            top = 'NO DOG FOUND  | UPLOAD A DOG IMAGE.'
+            
         
-        return render_template('result.html',breed_name=pas,  info= inf, device= chip)
+        if device == 'cpu':
+            chip = 'CPU | it might take some time to process image.'
+        else:
+            chip = 'GPU | available'
+        
+        return render_template('result.html',breed_name=found,  info= info, device= chip, image_name = name, head = top)
         
 
 

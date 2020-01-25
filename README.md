@@ -6,7 +6,7 @@
  
  ## About
  > This is example of transfer learning. Deployed using Flask frontend  is designed   using css, javascript .
- vgg19(pretrained on imagenet) to find weather image contains dog or not and resnet152 to find the breed of dog.
+ vgg19(pretrained on imagenet) to find wether image contains dog or not and resnet152 to find the breed of dog.
  dataset of 133 dog breeds is used to train the model 
 >> [Dog breed Dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip)
 - models folder contains  resent and vgg model weight files instead of read.txt

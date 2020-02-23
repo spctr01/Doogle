@@ -43,7 +43,7 @@ def hello():
             
         
         if device == 'cpu':
-            chip = 'CPU | it might take some time to process image.'
+            chip = 'CPU'
         else:
             chip = 'GPU | available'
         
@@ -53,3 +53,5 @@ def hello():
 
 if __name__ == '__main__':
     app.run(debug =True)
+
+

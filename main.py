@@ -8,12 +8,14 @@ import torchvision.transforms as transforms
 import numpy
 from PIL import Image
 import wikipedia
+import warnings
 
 
 
-
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
+
+warnings.filterwarnings('ignore')
 
 
 
@@ -28,6 +30,7 @@ def load_image(path):
 
     image = Image.open(path)
     image = transform(image)[:3,:,:].unsqueeze(0)
+    image = image.to(device)
     return image
 
 
@@ -83,6 +86,9 @@ def breed_name(idx):
 def breed(path):
   in_img = load_image(path)
   a = vgg(in_img)
+  print('----------------------')
+  print(a)
+  print('-----------------------')
 
   if a >= 151 and a <=280:
     class_no = res(in_img)
@@ -96,5 +102,10 @@ def breed(path):
 
 #returns information from wikipedia
 def wiki(info):
-  return wikipedia.summary(info)
+  info = info + ' dog'
+  try:
+    inf = wikipedia.summary(info)
+  except:
+    inf = 'NO DATA FOUND'
+  return inf
 

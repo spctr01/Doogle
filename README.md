@@ -11,12 +11,23 @@
 >> [Dog breed Dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip)
 - models folder contains  resent and vgg model weight files instead of read.txt
  
- ## Requirements
- - PyTorch1.0 
- - Flask-1.0.2 
- - Wikipedia api 
- - Numpy 
- - Pillow
+ > Installation & usage :
+ - Download or clone the repository:
+   >> git clone https://github.com/spctr01/dog_breed.git
+   
+ - move into folder:
+   >> cd dog_breed
+   
+ - Install the requirements:
+   >> pip install requirements.txt
+   
+ - run the commands(running flask app):
+   >>  export FLASK_APP=app.py
+   >> flask run
+       
+   
+
+ 
  
  
  

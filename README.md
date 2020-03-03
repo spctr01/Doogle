@@ -11,19 +11,29 @@
 >> [Dog breed Dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip)
 - models folder contains  resent and vgg model weight files instead of read.txt
  
- > Installation & usage :
- - Download or clone the repository:
-   >> git clone https://github.com/spctr01/dog_breed.git
-   
- - move into folder:
-   >> cd dog_breed
-   
- - Install the requirements:
-   >> pip install requirements.txt
-   
- - run the commands(running flask app):
-   >>  export FLASK_APP=app.py
-   >> flask run
+    
+## Installation & usage
+
+Download or clone the repository by :
+```sh
+git clone https://github.com/spctr01/dog_breed.git
+```
+move into folder:
+```sh
+ cd dog_breed
+ ```
+
+Install the requirements:
+```sh
+pip install requirements.txt
+```
+
+run the commands(running flask app):
+```sh
+export FLASK_APP=app.py
+flask run
+```
+
        
    
 

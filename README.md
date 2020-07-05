@@ -28,6 +28,13 @@ Install the requirements:
 pip install -r requirements.txt
 ```
 
+Download the model weight files and 
+paste the files (vgg.pth & model.pt) to Models Folder 
+
+[`Resnet152`](https://www.kaggle.com/rakshitrk/resnet152-dog-breed?) 
+
+[`Vgg19`](https://download.pytorch.org/models/vgg19-dcbb9e9d.pth) (change name to vgg.pth)
+
 run the commands(running flask app):
 ```sh
 export FLASK_APP=app.py
